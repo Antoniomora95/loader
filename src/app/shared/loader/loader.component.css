@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+    display: flex;
+    padding-left: 0px;
+} 
+ul li {
+    width: 33%;
+    cursor: pointer;
+    text-align: center;
+    padding: 4px 8px 4px 8px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.isActive {
+    background-color: tomato;
+    color: white;
+}
