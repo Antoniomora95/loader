@@ -8,10 +8,15 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent implements OnInit {
+  cssClass = {
+    link1: [true, false, false, false],
+    link2: [true, true, false, false],
+    link3: [true, true, false, false],
+    link4: [true, true, true, true],
+  }
   activeRoute : string = '';
   constructor(private router: Router, private route: ActivatedRoute) { 
   }
-
   ngOnInit() {
     this.getDataRoute();
   }
@@ -20,11 +25,12 @@ export class LoaderComponent implements OnInit {
     .subscribe((e: NavigationStart) => {
       console.log(e);
       this.activeRoute = e.url || ''; 
-    });
+    }); 
   }
   applyClass(progress) {
-    if(progress === 1) return true;
-    else if(progress === 2 && (this.activeRoute === '/link2' || this.activeRoute === '/link3')) return true;
-    else if((progress === 3 || progress === 2) &&  this.activeRoute === '/link4') return true;
+    this.activeRoute = this.activeRoute.replace('/','');
+    if(this.activeRoute){
+      return this.cssClass[this.activeRoute][progress];
+    }
   }
 }
