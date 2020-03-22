@@ -1,14 +1,14 @@
 <ul>
-  <li [ngClass]="{'isActive': applyClass(0)}">
+  <li [ngClass]="{'isActive': cssClass[activeRoute][0]}" [routerLink]="['/link1']">
     Progress 33
   </li>
-  <li [ngClass]="{'isActive': applyClass(1)}">
+  <li [ngClass]="{'isActive': cssClass[activeRoute][1]}"  [routerLink]="['/link2']">
     Progress 66
   </li>
-  <li [ngClass]="{'isActive': applyClass(2)}">
+  <li [ngClass]="{'isActive': cssClass[activeRoute][2]}"  [routerLink]="['/link3']">
     Progress 100
   </li>
-  <li [ngClass]="{'isActive': applyClass(3)}">
+  <li [ngClass]="{'isActive': cssClass[activeRoute][3]}"  [routerLink]="['/link4']">
     Progress 100
   </li>
 </ul>

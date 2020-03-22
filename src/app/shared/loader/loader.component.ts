@@ -13,9 +13,9 @@ export class LoaderComponent implements OnInit {
     link2: [true, true, false, false],
     link3: [true, true, false, false],
     link4: [true, true, true, true],
-  }
-  activeRoute : string = '';
-  constructor(private router: Router, private route: ActivatedRoute) { 
+  };
+  activeRoute : string = 'link1';
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
   ngOnInit() {
     this.getDataRoute();
@@ -23,14 +23,8 @@ export class LoaderComponent implements OnInit {
   getDataRoute() {
     this.router.events.pipe(filter((e: NavigationEvent) => e instanceof NavigationStart))
     .subscribe((e: NavigationStart) => {
-      console.log(e);
-      this.activeRoute = e.url || ''; 
-    }); 
-  }
-  applyClass(progress) {
-    this.activeRoute = this.activeRoute.replace('/','');
-    if(this.activeRoute){
-      return this.cssClass[this.activeRoute][progress];
-    }
+      this.activeRoute = e.url.replace('/', '');
+      this.activeRoute = this.activeRoute || 'link1';
+    });
   }
 }

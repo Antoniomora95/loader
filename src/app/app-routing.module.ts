@@ -7,11 +7,12 @@ import { Link4Component } from './pages/link4/link4.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo: 'link1', pathMatch: 'full'},
   {path: 'link1', component: Link1Component, data: {progress: 'link1'}},
-  {path: 'link2', component: Link2Component, data: {progress: 'link4'}},
+  {path: 'link2', component: Link2Component, data: {progress: 'link2'}},
   {path: 'link3', component: Link3Component, data: {progress: 'link3'}},
   {path: 'link4', component: Link4Component, data: {progress: 'link4'}},
+  {path: '', redirectTo: 'link1', pathMatch: 'full'},
+  {path: '**', redirectTo: 'link1'}
 ];
 
 @NgModule({
